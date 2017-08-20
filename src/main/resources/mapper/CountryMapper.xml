@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="tk.mybatis.springboot.mapper.CountryMapper">
+    <resultMap id="countryMap" type="tk.mybatis.springboot.model.Country">
+        <id property="id" column="ID"></id>
+        <result property="countryName" column="countryname"></result>
+        <result property="countryCode" column="countrycode"></result>
+    </resultMap>
+    <select id="selectAll" resultMap="countryMap">
+    select ID,countryname,countrycode from Country
+</select>
+    <select id="selectById" resultMap="countryMap">
+        select ID,countryname,countrycode from Country
+        where ID=#{id}
+    </select>
+    <insert id="insertCountry">
+        insert into country(countryname,countrycode) VALUES (#{countryName},#{countryCode})
+    </insert>
+</mapper>
