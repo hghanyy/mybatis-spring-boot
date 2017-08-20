@@ -9,7 +9,9 @@ import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import tk.mybatis.springboot.base.domain.ErrorResponse;
+import tk.mybatis.springboot.base.enumeration.ResultCode;
 import tk.mybatis.springboot.base.exception.BusinessException;
+import tk.mybatis.springboot.base.exception.SystemException;
 
 /**
  * @author hanguang
