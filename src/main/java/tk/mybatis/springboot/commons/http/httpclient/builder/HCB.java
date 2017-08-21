@@ -2,7 +2,6 @@ package tk.mybatis.springboot.commons.http.httpclient.builder;
 
 import org.apache.http.HttpHost;
 import org.apache.http.client.config.RequestConfig;
-import org.apache.http.client.config.RequestConfig.Builder;
 import org.apache.http.config.Registry;
 import org.apache.http.config.RegistryBuilder;
 import org.apache.http.conn.socket.ConnectionSocketFactory;
@@ -36,7 +35,7 @@ public class HCB
             }
             return this;
         }
-        Registry<ConnectionSocketFactory> socketFactoryRegistry = RegistryBuilder.create().register("http", PlainConnectionSocketFactory.INSTANCE).register("https", this.ssls.getSSLCONNSF()).build();
+        Registry<Object> socketFactoryRegistry = RegistryBuilder.create().register("http", PlainConnectionSocketFactory.INSTANCE).register("https", this.ssls.getSSLCONNSF()).build();
 
         PoolingHttpClientConnectionManager connManager = new PoolingHttpClientConnectionManager(socketFactoryRegistry);
 
@@ -57,7 +56,7 @@ public class HCB
 
     public HCB pool(int maxTotal, int defaultMaxPerRoute)
             throws HttpProcessException {
-        Registry<ConnectionSocketFactory> socketFactoryRegistry = RegistryBuilder.create().register("http", PlainConnectionSocketFactory.INSTANCE).register("https", this.ssls.getSSLCONNSF()).build();
+        Registry<Object> socketFactoryRegistry = RegistryBuilder.create().register("http", PlainConnectionSocketFactory.INSTANCE).register("https", this.ssls.getSSLCONNSF()).build();
 
         PoolingHttpClientConnectionManager connManager = new PoolingHttpClientConnectionManager(socketFactoryRegistry);
 

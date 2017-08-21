@@ -20,13 +20,12 @@ import javax.net.ssl.X509TrustManager;
 import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
 import org.apache.http.conn.ssl.TrustSelfSignedStrategy;
 import org.apache.http.nio.conn.ssl.SSLIOSessionStrategy;
-import org.apache.http.ssl.SSLContextBuilder;
 import org.apache.http.ssl.SSLContexts;
 import tk.mybatis.springboot.commons.http.exception.HttpProcessException;
 
 public class SSLs {
 
-    private static final SSLHandler simpleVerifier = new SSLHandler(null);
+    private static final SSLHandler simpleVerifier = new SSLHandler();
     private static SSLSocketFactory sslFactory;
     private static SSLConnectionSocketFactory sslConnFactory;
     private static SSLIOSessionStrategy sslIOSessionStrategy;
